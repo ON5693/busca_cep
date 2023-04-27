@@ -1,0 +1,61 @@
+﻿<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<br />
+<br />
+<h1>Informe a localização</h1>
+<br />
+<br />
+
+
+<div style="display: flex; justify-content: center">
+    <form action="" style="width: 50%">
+        ESTADO:<br>
+        <input type="text" name="uf" class="form-control" />
+        <br>
+        <br>
+        CIDADE:<br>
+        <input type="text" name="city" class="form-control" />
+        <br>
+        <br>
+        LOGRADOURO:<br>
+        <input type="text" name="ad" class="form-control" />
+        <br>
+        <br>
+        <button id="btnSearch" type="button">Pesquisar</button>
+    </form>
+</div>
+
+
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <button id="btnClose" type="button" class="close" data-dismiss="modal">&times;</button>
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div id="addressModal"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section scripts{
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                $("#btnSearch").click(function () {
+
+                    var uf = encodeURIComponent($("input[name*='uf']").val());
+                    var city = encodeURIComponent($("input[name*='city']").val());
+                    var ad = encodeURIComponent($("input[name*='ad']").val());
+
+                    $("#addressModal").load("/Address/Popup/" + uf + "/" + city + "/" + ad, function () {
+                        $("#myModal").modal("show");
+                    });
+                });
+            });
+
+        </script>
+    }

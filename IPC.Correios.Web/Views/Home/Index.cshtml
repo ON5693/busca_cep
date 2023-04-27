@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Apresentação";
+}
+
+@*@section scripts{
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/ipc.snowcomplete2.js"))"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#field").snowcomplete2({
+                remote: "/Controller/Action/?query=%QUERY",
+                placeholder: "Placeholder",
+                text: function (obj) {
+                    return "(" + obj.Sigla +")" + obj.Label;
+                },
+                item: function (obj) {
+                    return [
+                        "<span>" + obj.Label + "</span>",
+                        "<span> Na Listagem </span>",
+                        "<span >" + obj.Sigla + "</span>"
+                    ];
+                }
+            });
+        });
+    </script>
+}*@
+
+<div class="jumbotron">
+    <h1>Bem vindo ao BuscadorCEP</h1>
+    <p class="lead">O aplicativo permite que você encontre códigos de endereçamento postais (CEP), e endereços completos caso já possua o CEP.</p>
+</div>
+@*
+<form>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="field">Label</label>
+                        <input type="text" class="form-control" id="field" name="field" placeholder="Será substituido" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+*@

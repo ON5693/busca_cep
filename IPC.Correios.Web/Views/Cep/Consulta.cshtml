@@ -1,0 +1,44 @@
+﻿@Scripts.Render("~/Scripts/jquery-3.4.1.js")
+@Scripts.Render("~/Scripts/cep.js")
+@model IPC.Correios.Web.CepSearch
+
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <script type="text/javascript">
+        alert("@Model.Message");
+    </script>
+}
+
+<br />
+<br />
+<h1>Carregar CEP</h1>
+<br />
+<br />
+
+@using (Html.BeginForm())
+{
+    @Html.Label("CEP", new { @style = "alignself: flex-start; display: flex" })
+    <br>
+    @Html.TextBoxFor(m => m.CEP, new { @class = "form-control", @style = "width: 50%" })
+    <br>
+    <br>
+    @Html.Label("Endereço", new { @style = "alignself: flex-start; display: flex" })
+    <br>
+    @Html.TextBoxFor(m => m.Endereco, new { @class = "form-control", @style = "width: 50%" })
+    <br>
+    <br>
+    @Html.Label("Bairro", new { @style = "alignself: flex-start; display: flex" })
+    <br>
+    @Html.TextBoxFor(m => m.Bairro, new { @class = "form-control", @style = "width: 50%" })
+    <br>
+    <br>
+    @Html.Label("Cidade", new { @style = "alignself: flex-start; display: flex" })
+    <br>
+    @Html.TextBoxFor(m => m.Cidade, new { @class = "form-control", @style = "width: 50%" })
+    <br>
+    <br>
+    @Html.Label("Estado", new { @style = "alignself: flex-start; display: flex" })
+    <br>
+    @Html.TextBoxFor(m => m.Estado, new { @class = "form-control", @style = "width: 50%" })
+    <br>
+}

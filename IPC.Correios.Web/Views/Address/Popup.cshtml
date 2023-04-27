@@ -1,0 +1,30 @@
+﻿@model IPC.Correios.Web.AddressSearch
+
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <script type="text/javascript">
+        alert("@ViewBag.Message");
+    </script>
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.Label("CEP  ", new { @style = "alignself: flex-start; display: flex" })
+
+    @Html.TextBoxFor(m => m.CEP, new { @class = "form-control", @style = "width: 50%" })
+    <br>
+    @Html.Label("Código  ", new { @style = "alignself: flex-start; display: flex" })
+
+    @Html.TextBoxFor(m => m.Codigo, new { @class = "form-control", @style = "width: 50%" })
+    <br>
+    @Html.Label("Cidade  ", new { @style = "alignself: flex-start; display: flex" })
+
+    @Html.TextBoxFor(m => m.Cidade, new { @class = "form-control", @style = "width: 50%" })
+    <br>
+    @Html.Label("Logradouro  ", new { @style = "alignself: flex-start; display: flex" })
+
+    @Html.TextBoxFor(m => m.Logradouro, new { @class = "form-control", @style = "width: 50%" })
+    <br>
+}
